@@ -4,4 +4,4 @@ Keditree is a platform that enables business entities as well as individuals to 
 Business entities and individuals can obtain a green pass to place their bids. The profile eases any audit requests for businesses in case they are interested in ESG scores.
 The investors can trade their tokens on all DEXs and benefit the market dynamics.
 
-## Prizes
+## Contributors
