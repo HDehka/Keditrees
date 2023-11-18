@@ -9,8 +9,6 @@ dotenv.config()
 
     ; (async () => {
 
-        // https://chainlist.org/?search=goerli&testnets=true
-        // const RPC_URL = 'https://eth-sepolia.public.blastapi.io'
         const provider = new ethers.providers.JsonRpcProvider(process.env.SEPOLIA_URL)
 
         // Initialize signers
