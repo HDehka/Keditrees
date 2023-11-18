@@ -2,11 +2,18 @@ import { Button, Divider, Paper } from '@mui/material'
 import Image from 'next/image'
 import community from '@/app/assets/joinTheCommunicity.png'
 import earth from '@/app/assets/earth.png'
+import AdvantageCard, {
+  Icon as AdvantageCardIcon,
+} from '@/components/AdvantageCard'
+import FactCard, { Icon as FactCardIcon } from '@/components/FactCard'
+import ProcessesAccordion from '@/components/ProcessesAccordion'
 
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
+      <div
+        id="intro"
+        className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
         <p className="text-wrapper-4">Let’s initiate a good cause</p>
         <div className="description-action">
           <p className="with-forsttech-earn">
@@ -22,45 +29,41 @@ export default function Home() {
           />
         </div>
       </div>
-      <div className="section-5">
-        <div className="content-5">
-          <div className="label-3">
-            <div className="text-wrapper-15">Why ForstTech?</div>
-          </div>
-          <p className="text-wrapper-11">
-            ForstTech provides tokens to fund reforestation projects worldwide,
-            providing investors with an opportunity to support environment by
-            simply planting trees.
-          </p>
+      <div id="why us" className="section-5">
+        <div className="label-3">
+          <div className="text-wrapper-15">Why ForstTech?</div>
+        </div>
+        <p className="text-wrapper-11">
+          ForstTech provides tokens to fund reforestation projects worldwide,
+          providing investors with an opportunity to support environment by
+          simply planting trees.
+        </p>
+      </div>
+      <div id="advantage cards" className="w-full flex flex-row">
+        <div className="basis-1/3">
+          <AdvantageCard
+            iconName={AdvantageCardIcon.cloud}
+            title="Carbon sequestration"
+            detail="Trees absorb CO2 from the atmosphere and store it in their wood and
+        leaves, helping mitigate the effects of climate change."
+          />
+        </div>
+        <div className="basis-1/3">
+          <AdvantageCard
+            iconName={AdvantageCardIcon.wind}
+            title="Air quality improvement"
+            detail="Trees can help to reduce air pollution by absorbing harmful pollutants such as nitrogen dioxide, sulfur dioxide, and ozone."
+          />
+        </div>
+        <div className="basis-1/3">
+          <AdvantageCard
+            iconName={AdvantageCardIcon.pet}
+            title="Biodiversity conservation"
+            detail="Trees provide habitat and food for a wide range of wildlife, helping to maintain biodiversity and ecological balance."
+          />
         </div>
       </div>
-      <div className="w-max flex flex-row">
-        <Paper className="basis-1/3" elevation={3}>
-          <div>Carbon sequestration</div>
-          <Divider />
-          <div>
-            Trees absorb CO2 from the atmosphere and store it in their wood and
-            leaves, helping mitigate the effects of climate change.
-          </div>
-        </Paper>
-        <Paper className="basis-1/3" elevation={3}>
-          <div>Air quality improvement</div>
-          <Divider />
-          <div>
-            Trees can help to reduce air pollution by absorbing harmful
-            pollutants such as nitrogen dioxide, sulfur dioxide, and ozone.
-          </div>
-        </Paper>
-        <Paper className="basis-1/3" elevation={3}>
-          <div>Biodiversity conservation</div>
-          <Divider />
-          <div>
-            Trees provide habitat and food for a wide range of wildlife, helping
-            to maintain biodiversity and ecological balance.
-          </div>
-        </Paper>
-      </div>
-      <div>
+      <div id="our impact" className="flex flex-row">
         <Image width={500} height={500} alt="Earth" src={earth} />
         <div className="content-2">
           <div className="label">
@@ -76,41 +79,29 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="w-max flex flex-row">
+      <div id="fact cards" className="w-full flex flex-row">
         <div className="basis-1/4">
-          <div className="frame-2"></div>
-          <div className="frame-3">
-            <div className="text-wrapper-5">7,300</div>
-            <div className="text-wrapper-6">Trees</div>
-          </div>
+          <FactCard iconName={FactCardIcon.trees} num="7,300" text="Trees" />
         </div>
         <div className="basis-1/4">
-          <div className="frame-2"></div>
-          <div className="frame-4">
-            <div className="text-wrapper-5">214,000,23</div>
-            <div className="text-wrapper-6">Co2 Stored</div>
-          </div>
+          <FactCard
+            iconName={FactCardIcon.share}
+            num="214,000,23"
+            text="Co2 Stored"
+          />
         </div>
         <div className="basis-1/4">
-          <div className="quick-info-list-item-3">
-            <div className="frame-2"></div>
-            <div className="frame-4">
-              <div className="text-wrapper-5">312</div>
-              <div className="text-wrapper-6">Area Covered</div>
-            </div>
-          </div>
+          <FactCard iconName={FactCardIcon.pet} num="312" text="Area Covered" />
         </div>
         <div className="basis-1/4">
-          <div className="quick-info-list-item-2">
-            <div className="frame-2"></div>
-            <div className="frame-4">
-              <div className="text-wrapper-5">10,000,00</div>
-              <div className="text-wrapper-6">Investors</div>
-            </div>
-          </div>
+          <FactCard
+            iconName={FactCardIcon.people}
+            num="10,000,00"
+            text="Investors"
+          />
         </div>
       </div>
-      <div className="section-4">
+      <div id="processes" className="w-full">
         <div className="content-3">
           <div className="label">
             <div className="text-wrapper-10">Our processes</div>
@@ -120,41 +111,9 @@ export default function Home() {
             species, preparing the land, planting the trees.
           </p>
         </div>
-        <div className="process-block">
-          <div className="card">
-            <div className="content-4">
-              <div className="label-2">
-                <div className="text-wrapper-12">01</div>
-                <div className="text-wrapper-13">Title</div>
-              </div>
-            </div>
-            <p className="text-wrapper-14">
-              Description goes here Description goes here Description goes here
-              Description goes here Description goes here Description goes here
-              Description goes here Description goes here Description goes here
-              Description goes here Description goes here Description goes here
-              Description goes here Description goes here
-            </p>
-          </div>
-          <div className="content-wrapper">
-            <div className="content-4">
-              <div className="label-2">
-                <div className="text-wrapper-12">02</div>
-                <div className="text-wrapper-13">Title</div>
-              </div>
-            </div>
-          </div>
-          <div className="content-wrapper">
-            <div className="content-4">
-              <div className="label-2">
-                <div className="text-wrapper-12">03</div>
-                <div className="text-wrapper-13">Title</div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <ProcessesAccordion />
       </div>
-      <div className="w-max">
+      <div id="contact us" className="w-max">
         <div className="overlap-group">
           <p className="p">To stay connected with us</p>
           <p className="text-wrapper-3">
