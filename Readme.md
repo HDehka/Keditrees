@@ -38,6 +38,10 @@ npm start
 
 ## Features
 
+TODO: Airbus API for satellite images
+
+Mock API for tree count analysis: https://api.jsonbin.io/v3/b/65587a6c54105e766fd1ba33
+
 - Feature 1
 - Feature 2
 - ...
@@ -67,7 +71,3 @@ This project is licensed under the [MIT License](LICENSE).
 
 - Thanks to [Name] for their awesome library
 - ...
-
-```
-
-```
