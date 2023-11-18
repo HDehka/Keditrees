@@ -41,10 +41,12 @@ function FactCard({
   text: string
 }) {
   return (
-    <div>
-      {icon(iconName)}
-      <Typography>{num}</Typography>
-      <Typography>{text}</Typography>
+    <div className="flex">
+      <div className="mx-5 p-2">{icon(iconName)}</div>
+      <div className="flex-col">
+        <Typography className="text-white text-3xl">{num}</Typography>
+        <Typography className="text-white text-xl">{text}</Typography>
+      </div>
     </div>
   )
 }

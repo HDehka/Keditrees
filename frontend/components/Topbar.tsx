@@ -40,16 +40,16 @@ function Topbar() {
   }
 
   return (
-    <div className="flex flex-row">
+    <div className="flex flex-row p-10">
       <div className="basis-1/4">
         <Image width={50} height={50} alt="Logo" src={Logo} />
       </div>
       <div className="basis-1/2">
-        <Button>Home</Button>
-        <Button>Projects</Button>
-        <Button>Blog</Button>
-        <Button>Developers</Button>
-        <Button>About us</Button>
+        <Button className="btn">Home</Button>
+        <Button className="btn">Projects</Button>
+        <Button className="btn">Blog</Button>
+        <Button className="btn">Developers</Button>
+        <Button className="btn">About us</Button>
       </div>
       <div className="basis-1/4">
         <Fragment>

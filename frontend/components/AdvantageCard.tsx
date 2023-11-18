@@ -36,16 +36,13 @@ function AdvantageCard({
   detail: string
 }) {
   return (
-    <Paper className="w-max" elevation={3}>
-      <div className="flex flex-row">
+    <Paper className="w-11/12 p-5 bg-tertiary rounded-3xl" elevation={3}>
+      <div className="flex flex-row py-5">
         {icon(iconName)}
-        <div>{title}</div>
+        <div className="text-white text-xl">{title}</div>
       </div>
-      <Divider />
-      <Typography
-        className="w-max"
-        variant="body2"
-        style={{ wordWrap: 'break-word' }}>
+      <Divider className="bg-white" />
+      <Typography className="py-5 text-white text-lg" variant="body2">
         {detail}
       </Typography>
     </Paper>

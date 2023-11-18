@@ -10,34 +10,37 @@ import ProcessesAccordion from '@/components/ProcessesAccordion'
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div
-        id="intro"
-        className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="text-wrapper-4">Let’s initiate a good cause</p>
-        <div className="description-action">
-          <p className="with-forsttech-earn">
-            With ForstTech, earn crypto tokens while saving the planet. Plant
-            trees and and earn today!
-          </p>
-          <Button>Join the community</Button>
-          <Image
-            width={500}
-            height={500}
-            alt="Join The Community"
-            src={community}
-          />
+    <main className="flex flex-col min-h-screen p-5 justify-between items-center">
+      <div id="intro" className="z-10 max-w-5xl w-full">
+        <div className="text-7xl text-white p-5">
+          Let’s initiate a good cause
         </div>
+        <div className="flex flex-col">
+          <div className="text-2xl text-white">
+            With ForstTech, earn crypto tokens while saving the planet.
+            <br />
+            Plant trees and and earn today!
+          </div>
+          <Button className="text-white bg-secondary border-r-4 ">
+            Join the community
+          </Button>
+        </div>
+        <Image
+          width={500}
+          height={500}
+          alt="Join The Community"
+          src={community}
+        />
       </div>
       <div id="why us" className="section-5">
-        <div className="label-3">
-          <div className="text-wrapper-15">Why ForstTech?</div>
+        <div className="">
+          <div className="text-white text-5xl p-5">Why ForstTech?</div>
         </div>
-        <p className="text-wrapper-11">
+        <div className="text-white text-3xl p-5">
           ForstTech provides tokens to fund reforestation projects worldwide,
           providing investors with an opportunity to support environment by
           simply planting trees.
-        </p>
+        </div>
       </div>
       <div id="advantage cards" className="w-full flex flex-row">
         <div className="basis-1/3">
@@ -63,19 +66,19 @@ export default function Home() {
           />
         </div>
       </div>
-      <div id="our impact" className="flex flex-row">
-        <Image width={500} height={500} alt="Earth" src={earth} />
-        <div className="content-2">
+      <div id="our impact" className="flex flex-row m-5">
+        <Image width={2000} height={2000} alt="Earth" src={earth} />
+        <div className="m-10">
           <div className="label">
-            <p className="text-wrapper-7">Our impact to the earth</p>
+            <p className="text-white text-5xl m-5">Our impact to the earth</p>
           </div>
-          <p className="trees-act-as-natural">
+          <p className="text-white text-2xl m-5">
             Trees act as natural carbon sinks, absorbing carbon dioxide from the
             atmosphere and helping to mitigate climate change.
           </p>
           <div className="frame-6">
-            <div className="text-wrapper-8">23,014</div>
-            <div className="text-wrapper-9">Projects completed</div>
+            <div className="text-white text-5xl m-5">23,014</div>
+            <div className="text-white text-2xl m-5">Projects completed</div>
           </div>
         </div>
       </div>
@@ -104,9 +107,9 @@ export default function Home() {
       <div id="processes" className="w-full">
         <div className="content-3">
           <div className="label">
-            <div className="text-wrapper-10">Our processes</div>
+            <div className="text-5xl text-white my-10">Our processes</div>
           </div>
-          <p className="text-wrapper-11">
+          <p className="text-2xl text-white my-10">
             The process of forestation involves selecting appropriate tree
             species, preparing the land, planting the trees.
           </p>
