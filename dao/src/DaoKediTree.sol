@@ -66,19 +66,17 @@ contract DaoKediTree is FunctionsClient, ConfirmedOwner, ERC20 {
         _burn(owner(), amount);
     }
 
-    /**
-     * @notice Sends an HTTP request for character information
-     * @param subscriptionId The ID for the Chainlink subscription
-     * @param args The arguments to pass to the HTTP request
-     * @return requestId The ID of the request
-     */
     function sendRequest(
         uint64 subscriptionId,
-        string[] calldata args
+        string calldata projectId
     ) external onlyOwner returns (bytes32 requestId) {
         FunctionsRequest.Request memory req;
         req.initializeRequestForInlineJavaScript(source); // Initialize the request with JS code
-        if (args.length > 0) req.setArgs(args); // Set the arguments for the request
+        if (bytes(projectId).length > 0) {
+            string[] memory args = new string[](1);
+            args[0] = projectId;
+            req.setArgs(args); // Set the arguments for the request
+        }
 
         // Send the request and store the request ID
         s_lastRequestId = _sendRequest(

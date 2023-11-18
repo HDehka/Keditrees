@@ -44,6 +44,13 @@ Mock API for tree count analysis: https://api.jsonbin.io/v3/b/65587a6c54105e766f
 
 Chainlink Function Subscription Id: 1689 (Sepolia)
 
+Deployed contracts:
+- L1: https://sepolia.etherscan.io/address/0xaf88889772320d81f272a9d1e1af0552ed588636 
+- Scroll: https://sepolia.scrollscan.com/address/0x994C3aCa08860d8B1a50A8076545eAA3fdfdEB0e
+- Linea: https://goerli.lineascan.build/address/0x67873f3694Af60097980f920c62f39EeB5E05dD8
+
+## Contracts
+
 forge create --rpc-url https://sepolia.infura.io/v3/00000000000000000000000000000000 --private-key 0000000000000000000000000000000000000000000000000000000000000000 --etherscan-api-key 0000000000000000000000000000000000 --verify DaoKediTree
 
 ## Contributing
