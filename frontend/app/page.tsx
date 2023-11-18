@@ -11,7 +11,9 @@ import ProcessesAccordion from '@/components/ProcessesAccordion'
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
+      <div
+        id="intro"
+        className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
         <p className="text-wrapper-4">Let’s initiate a good cause</p>
         <div className="description-action">
           <p className="with-forsttech-earn">
@@ -27,17 +29,15 @@ export default function Home() {
           />
         </div>
       </div>
-      <div className="section-5">
-        <div className="content-5">
-          <div className="label-3">
-            <div className="text-wrapper-15">Why ForstTech?</div>
-          </div>
-          <p className="text-wrapper-11">
-            ForstTech provides tokens to fund reforestation projects worldwide,
-            providing investors with an opportunity to support environment by
-            simply planting trees.
-          </p>
+      <div id="why us" className="section-5">
+        <div className="label-3">
+          <div className="text-wrapper-15">Why ForstTech?</div>
         </div>
+        <p className="text-wrapper-11">
+          ForstTech provides tokens to fund reforestation projects worldwide,
+          providing investors with an opportunity to support environment by
+          simply planting trees.
+        </p>
       </div>
       <div id="advantage cards" className="w-full flex flex-row">
         <div className="basis-1/3">
