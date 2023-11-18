@@ -52,10 +52,9 @@ function Topbar() {
         <Button>About us</Button>
       </div>
       <div className="basis-1/4">
-        <Button>Log in?</Button>
         <Fragment>
           <Button variant="outlined" onClick={handleClickOpen}>
-            Open full-screen dialog
+            Connect
           </Button>
           <Dialog
             fullScreen
