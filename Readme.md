@@ -42,9 +42,7 @@ TODO: Airbus API for satellite images
 
 Mock API for tree count analysis: https://api.jsonbin.io/v3/b/65587a6c54105e766fd1ba33
 
-- Feature 1
-- Feature 2
-- ...
+Chainlink Function Subscription Id: 1689 (Sepolia)
 
 ## Contributing
 
