@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --foreground-rgb: 14, 27, 22;
+  --background-start-rgb: 14, 27, 22;
+  --background-end-rgb: 14, 27, 22;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -24,4 +24,11 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+}
+
+.btn {
+  color: #026e78;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
 }

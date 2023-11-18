@@ -1,135 +1,114 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
+pragma solidity 0.8.20;
 
-import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
-import "../lib/chainlink-brownie-contracts/contracts/src/v0.8/dev/ChainlinkClient.sol";
+import {ERC20} from "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+import {FunctionsClient} from "lib/chainlink/contracts/src/v0.8/functions/v1_0_0/FunctionsClient.sol";
+import {ConfirmedOwner} from "lib/chainlink/contracts/src/v0.8/shared/access/ConfirmedOwner.sol";
+import {FunctionsRequest} from "lib/chainlink/contracts/src/v0.8/functions/v1_0_0/libraries/FunctionsRequest.sol";
 
-contract DaoKediTree is ChainlinkClient, ERC20 {
-    // Chainlink variables
-    address private oracle;
-    bytes32 private jobId;
-    uint256 private fee;
+contract DaoKediTree is FunctionsClient, ConfirmedOwner, ERC20 {
+    using FunctionsRequest for FunctionsRequest.Request;
 
-    constructor(
-        address _oracle,
-        bytes32 _jobId,
-        uint256 _fee,
-        address _link,
-        address _calculationContract
-    ) ERC20("KediCarbon", "KediCarbon") {
-        setChainlinkToken(_link);
-        oracle = _oracle;
-        jobId = _jobId;
-        fee = _fee; // Fee in LINK (1 LINK = 10^18 wei)
+    // State variables to store the last request ID, response, and error
+    bytes32 public s_lastRequestId;
+    bytes public s_lastResponse;
+    bytes public s_lastError;
 
-        calculation = Calculation(_calculationContract);
-        _owner = msg.sender;
+    // Custom error type
+    error UnexpectedRequestID(bytes32 requestId);
+
+    // Event to log responses
+    event Response(
+        bytes32 indexed requestId,
+        uint256 carbonCredits,
+        bytes response,
+        bytes err
+    );
+
+    // Router address - Hardcoded for Sepolia
+    // Check to get the router address for your supported network https://docs.chain.link/chainlink-functions/supported-networks
+    address router = 0xb83E47C2bC239B3bf370bc41e1459A34b41238D0;
+
+    // JavaScript source code
+    // Fetch character name from the Star Wars API.
+    // Documentation: https://swapi.dev/documentation#people
+
+    string source =
+        "const { data, error } = await Functions.makeHttpRequest({ url: `https://api.jsonbin.io/v3/b/65587a6c54105e766fd1ba33` });"
+        "if (error) { throw Error('Request failed'); }"
+        "return Functions.encodeUint256(data.record.trees);";
+
+    //Callback gas limit
+    uint32 callbackGasLimit = 300000;
+
+    // Check to get the donID for your supported network https://docs.chain.link/chainlink-functions/supported-networks
+    bytes32 donID =
+        0x66756e2d657468657265756d2d7365706f6c69612d3100000000000000000000;
+
+    // State variable to store the returned character information
+    uint256 public carbonCredits;
+
+    /**
+     * @notice Initializes the contract with the Chainlink router address and sets the contract owner
+     */
+    constructor()
+        ERC20("KediCarbon", "KediCarbon")
+        FunctionsClient(router)
+        ConfirmedOwner(msg.sender)
+    {}
+
+
+    function mint(uint256 amount) onlyOwner external payable {
+        _mint(owner(), amount);
     }
 
-    function createTree() public {
-        // Request data from the Chainlink oracle
-        Chainlink.Request memory req = buildChainlinkRequest(
-            jobId,
-            address(this),
-            this.fulfill.selector
+    function burn(uint256 amount) onlyOwner external payable {
+        _burn(owner(), amount);
+    }
+
+    function sendRequest(
+        uint64 subscriptionId,
+        string calldata projectId
+    ) external onlyOwner returns (bytes32 requestId) {
+        FunctionsRequest.Request memory req;
+        req.initializeRequestForInlineJavaScript(source); // Initialize the request with JS code
+        if (bytes(projectId).length > 0) {
+            string[] memory args = new string[](1);
+            args[0] = projectId;
+            req.setArgs(args); // Set the arguments for the request
+        }
+
+        // Send the request and store the request ID
+        s_lastRequestId = _sendRequest(
+            req.encodeCBOR(),
+            subscriptionId,
+            callbackGasLimit,
+            donID
         );
-        //this pard need some update
-        add("get", "https://your-api-endpoint.com"); // Replace with your API endpoint
-        req.add("path", "treesCreated"); // Replace with the JSON path to the data you want
-        req.add("copyPath", "treesCreated"); // Copy the data to the top-level response
 
-        // Send the request
-        sendChainlinkRequestTo(oracle, req, fee);
+        return s_lastRequestId;
     }
 
-    // Callback function to receive the response from the oracle
-    function fulfill(
-        bytes32 _requestId,
-        uint256 _treesCreated,
-        uint256 _carbonCredits
-    ) public recordChainlinkFulfillment(_requestId) {
-        // Store the received data in the contract
-        _plantedTrees = _treesCreated;
-        _issuedCredits = _carbonCredits;
-    }
+    /**
+     * @notice Callback function for fulfilling a request
+     * @param requestId The ID of the request to fulfill
+     * @param response The HTTP response data
+     * @param err Any errors from the Functions request
+     */
+    function fulfillRequest(
+        bytes32 requestId,
+        bytes memory response,
+        bytes memory err
+    ) internal override {
+        if (s_lastRequestId != requestId) {
+            revert UnexpectedRequestID(requestId); // Check if request IDs match
+        }
+        // Update the contract's state variables with the response and any errors
+        s_lastResponse = response;
+        carbonCredits = abi.decode(response, (uint256));
+        s_lastError = err;
 
-    // Get function to retrieve the value of treesCreated
-    function getTreesCreated() external view returns (uint256) {
-        return _plantedTrees;
-    }
-
-    function getIssuedCredits() external view returns (uint256) {
-        return _issuedCredits;
-    }
-
-    /*  total trees planted so far
-    this number is updated with number of tokens minted */
-    uint internal _plantedTrees;
-    uint internal _issuedCredits;
-
-    uint internal _totalMinted;
-
-    address internal immutable _owner;
-
-    Calculation internal calculation;
-
-    /*
-    @dev allows users to mint tokens in exchange of some ether they pay
-    Calculation in such contracts is often sourced out of external contracts
-    */
-
-    function mint() external payable {
-        uint _plantedSoFar = _plantedTrees;
-        createTree();
-        uint _plantedUpdated = _plantedTrees;
-        uint new_added = _plantedUpdated - _plantedSoFar;
-        uint tokens_to_add = new_added;
-        _mint(_owner, tokens_to_add);
-        _totalMinted = _totalMinted + tokens_to_add;
-    }
-
-    function checkTotalPlantedTrees() external view returns (uint256) {
-        return _plantedTrees;
-    }
-
-    function updateCalculationContract(address _addr) external onlyOwner {
-        calculation = Calculation(_addr);
-    }
-
-    //modifiers
-    modifier uintZeroCheck(uint _val) {
-        require(_val != 0, "uint value used can't be 0");
-        _;
-    }
-
-    modifier addressNotZero(address _addr) {
-        require(_addr != address(0), "address can't be x000..");
-        _;
-    }
-
-    modifier onlyOwner() {
-        require(msg.sender == _owner, "only owner can access this function");
-        _;
-    }
-}
-
-/*
-UPDATES REQUIRED
-safeMath is not used as this is just first basic contract.
-*/
-
-contract Calculation {
-    /*  @func calculates the number of coins needed to mint
-    a specific number of tokens.
-    This function is kept in external contract, so it could
-    be updated later on */
-
-    function _calculatetokensRequired(
-        uint _tokens
-    ) external pure returns (uint) {
-        //for sake of example we will use a fixed rate.
-        //otherwise it will import rates directly from pools
-        uint val = _tokens * 2;
-        return val;
+        // Emit an event to log the response
+        emit Response(requestId, carbonCredits, s_lastResponse, s_lastError);
     }
 }
