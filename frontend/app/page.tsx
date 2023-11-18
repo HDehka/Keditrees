@@ -10,29 +10,32 @@ import ProcessesAccordion from '@/components/ProcessesAccordion'
 
 export default function Home() {
   return (
-    <main className="flex flex-col min-h-screen justify-between items-center">
+    <main className="flex flex-col min-h-screen justify-center items-center">
       <div id="intro" className="z-10 max-w-5xl">
         <div className="text-7xl text-white p-5">
           Let’s initiate a good cause
         </div>
-        <div className="flex flex-col">
-          <div className="text-2xl text-white">
+        <div className="flex flex-col justify-center items-center my-5">
+          <div className="text-xl text-white">
             With ForstTech, earn crypto tokens while saving the planet.
-            <br />
+          </div>
+          <div className="text-xl text-white">
             Plant trees and and earn today!
           </div>
-          <Button className="text-white bg-secondary border-r-4 ">
+          <Button className="text-white bg-secondary mt-3 rounded-full p-5">
             Join the community
           </Button>
         </div>
-        <Image
-          width={500}
-          height={500}
-          alt="Join The Community"
-          src={community}
-        />
+        <div className="flex flex-col justify-center items-center my-20">
+          <Image
+            width={400}
+            height={400}
+            alt="Join The Community"
+            src={community}
+          />
+        </div>
       </div>
-      <div id="why us" className="max-w-7xl">
+      <div id="why us" className="max-w-7xl my-10">
         <div className="">
           <div className="text-white text-5xl p-5">Why ForstTech?</div>
         </div>
@@ -66,13 +69,13 @@ export default function Home() {
           />
         </div>
       </div>
-      <div id="our impact" className="flex flex-row my-5 w-full">
+      <div id="our impact" className="flex flex-row mt-36 w-full">
         <Image width={2000} height={2000} alt="Earth" src={earth} />
         <div className="m-10">
           <div className="label">
             <p className="text-white text-5xl m-5">Our impact to the earth</p>
           </div>
-          <p className="text-white text-2xl m-5">
+          <p className="text-white text-2xl m-5 my-10">
             Trees act as natural carbon sinks, absorbing carbon dioxide from the
             atmosphere and helping to mitigate climate change.
           </p>
@@ -82,7 +85,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div id="fact cards" className="max-w-7xl flex flex-row">
+      <div id="fact cards" className="max-w-7xl flex flex-row mt-10 mb-20">
         <div className="basis-1/4">
           <FactCard iconName={FactCardIcon.trees} num="7,300" text="Trees" />
         </div>

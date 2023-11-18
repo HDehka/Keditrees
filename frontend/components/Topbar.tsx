@@ -6,6 +6,7 @@ import { Fragment, forwardRef, useState } from 'react'
 import Logo from '@/app/assets/logo.png'
 import { TransitionProps } from '@mui/material/transitions'
 import LoginDialog from './LoginDialog'
+import Link from 'next/link'
 
 const Transition = forwardRef(function Transition(
   props: TransitionProps & {
@@ -29,10 +30,14 @@ function Topbar() {
   return (
     <div className="flex flex-row p-10">
       <div className="basis-1/4">
-        <Image width={50} height={50} alt="Logo" src={Logo} />
+        <Link href="/">
+          <Image width={50} height={50} alt="Logo" src={Logo} />
+        </Link>
       </div>
       <div className="basis-1/2">
-        <Button className="btn">Home</Button>
+        <Link href="/">
+          <Button className="btn">Home</Button>
+        </Link>
         <Button className="btn">Projects</Button>
         <Button className="btn">Blog</Button>
         <Button className="btn">Developers</Button>
@@ -40,9 +45,14 @@ function Topbar() {
       </div>
       <div className="basis-1/4">
         <Fragment>
-          <Button className="btn" variant="outlined" onClick={handleClickOpen}>
-            Connect
-          </Button>
+          <div className="flex flex-col justify-center items-end">
+            <Button
+              className="btn"
+              variant="outlined"
+              onClick={handleClickOpen}>
+              Connect
+            </Button>
+          </div>
           <Dialog
             fullScreen
             open={open}
