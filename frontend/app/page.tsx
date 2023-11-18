@@ -10,9 +10,8 @@ export default function Home() {
         <p className="text-wrapper-4">Let’s initiate a good cause</p>
         <div className="description-action">
           <p className="with-forsttech-earn">
-            With ForstTech, earn crypto tokens while saving the planet.
-            <br />
-            Plant trees and and earn today!
+            With ForstTech, earn crypto tokens while saving the planet. Plant
+            trees and and earn today!
           </p>
           <Button>Join the community</Button>
           <Image
@@ -35,51 +34,32 @@ export default function Home() {
           </p>
         </div>
       </div>
-      {/* <div className="w-max flex flex-row">
+      <div className="w-max flex flex-row">
         <Paper className="basis-1/3" elevation={3}>
-          <div>
-            Carbon
-            <br />
-            sequestration
-          </div>
+          <div>Carbon sequestration</div>
           <Divider />
-          <p>
+          <div>
             Trees absorb CO2 from the atmosphere and store it in their wood and
-            leaves, helping mitigate the effects of
-            <br />
-            climate change.
-          </p>
+            leaves, helping mitigate the effects of climate change.
+          </div>
         </Paper>
         <Paper className="basis-1/3" elevation={3}>
-          <div>
-            Air quality
-            <br />
-            improvement
-          </div>
+          <div>Air quality improvement</div>
           <Divider />
-          <p>
+          <div>
             Trees can help to reduce air pollution by absorbing harmful
-            pollutants such as nitrogen dioxide, sulfur dioxide,
-            <br />
-            and ozone.
-          </p>
+            pollutants such as nitrogen dioxide, sulfur dioxide, and ozone.
+          </div>
         </Paper>
         <Paper className="basis-1/3" elevation={3}>
-          <div>
-            Biodiversity
-            <br />
-            conservation
-          </div>
+          <div>Biodiversity conservation</div>
           <Divider />
-          <p>
-            Trees provide habitat and food
-            <br />
-            for a wide range of wildlife, helping to maintain biodiversity and
-            <br />
-            ecological balance.
-          </p>
+          <div>
+            Trees provide habitat and food for a wide range of wildlife, helping
+            to maintain biodiversity and ecological balance.
+          </div>
         </Paper>
-      </div> */}
+      </div>
       <div>
         <Image width={500} height={500} alt="Earth" src={earth} />
         <div className="content-2">
@@ -87,11 +67,8 @@ export default function Home() {
             <p className="text-wrapper-7">Our impact to the earth</p>
           </div>
           <p className="trees-act-as-natural">
-            Trees act as natural carbon sinks, absorbing carbon
-            <br />
-            dioxide from the atmosphere and helping to mitigate
-            <br />
-            climate change.
+            Trees act as natural carbon sinks, absorbing carbon dioxide from the
+            atmosphere and helping to mitigate climate change.
           </p>
           <div className="frame-6">
             <div className="text-wrapper-8">23,014</div>
