@@ -44,6 +44,8 @@ Mock API for tree count analysis: https://api.jsonbin.io/v3/b/65587a6c54105e766f
 
 Chainlink Function Subscription Id: 1689 (Sepolia)
 
+forge create --rpc-url https://sepolia.infura.io/v3/00000000000000000000000000000000 --private-key 0000000000000000000000000000000000000000000000000000000000000000 --etherscan-api-key 0000000000000000000000000000000000 --verify DaoKediTree
+
 ## Contributing
 
 1. Fork the repository

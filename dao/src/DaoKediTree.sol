@@ -6,7 +6,7 @@ import {FunctionsClient} from "lib/chainlink/contracts/src/v0.8/functions/v1_0_0
 import {ConfirmedOwner} from "lib/chainlink/contracts/src/v0.8/shared/access/ConfirmedOwner.sol";
 import {FunctionsRequest} from "lib/chainlink/contracts/src/v0.8/functions/v1_0_0/libraries/FunctionsRequest.sol";
 
-contract DaoKediTreex is FunctionsClient, ConfirmedOwner, ERC20 {
+contract DaoKediTree is FunctionsClient, ConfirmedOwner, ERC20 {
     using FunctionsRequest for FunctionsRequest.Request;
 
     // State variables to store the last request ID, response, and error
