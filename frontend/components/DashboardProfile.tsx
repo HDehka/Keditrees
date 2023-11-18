@@ -6,11 +6,13 @@ import React from 'react'
 function DashboardProfile() {
   return (
     <div id="profile" className="basis-1/4">
-      <Paper className="dashboardCard" elevation={3}>
+      <Paper
+        className="dashboardCard flex flex-col justify-center items-center"
+        elevation={3}>
         <Avatar alt="Profile avatar" src="@/app/assets/avatar.jpeg" />
-        <div>Hojjat Felani</div>
-        <div>Berlin, Germany</div>
-        <Button>Edit profile</Button>
+        <div className="text-lg">Hojjat Felani</div>
+        <div className="text-xs">Berlin, Germany</div>
+        <Button className="btn">Edit profile</Button>
       </Paper>
       <Paper className="dashboardCard" elevation={3}>
         <div className="flex flex-row">
@@ -23,7 +25,9 @@ function DashboardProfile() {
         </div>
         <div>PUBLIC ADDRESS</div>
       </Paper>
-      <Button>Need help? Contact us</Button>
+      <div className="flex flex-col justify-center items-center">
+        <Button className="btn">Need help? Contact us</Button>
+      </div>
     </div>
   )
 }

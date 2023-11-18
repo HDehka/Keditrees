@@ -1,4 +1,4 @@
-import { Paper } from '@mui/material'
+import { Button, Paper, Typography } from '@mui/material'
 import React from 'react'
 import DashboardCard, { Icon } from './DashboardCard'
 
@@ -8,7 +8,7 @@ function DashboardMain() {
       <div className="flex flex-row h-1/2 mb-5">
         <div className="basis-1/4">
           <DashboardCard
-            iconName={Icon.check}
+            iconName={Icon.flash}
             className="dashboardCard h-1/2"
             title="Total Projects"
             value="$53,00989"
@@ -31,6 +31,7 @@ function DashboardMain() {
             change="10% decrease from last month"
           />
           <DashboardCard
+            iconName={Icon.share2}
             className="dashboardCard h-1/2"
             title="CO2 Stored"
             value="25,000"
@@ -38,12 +39,17 @@ function DashboardMain() {
           />
         </div>
         <div className="basis-2/4">
-          <DashboardCard className="dashboardCard h-full" title="Locations" />
+          <DashboardCard
+            className="dashboardCard h-full"
+            title="Locations"
+            iconName={Icon.world}
+          />
         </div>
       </div>
       <div className="flex flex-row h-1/2">
         <div className="basis-1/3">
           <DashboardCard
+            iconName={Icon.share2}
             className="dashboardCard h-1/2"
             title="Total Available Tokens"
             value="923,623,252"
@@ -52,6 +58,7 @@ function DashboardMain() {
         </div>
         <div className="basis-1/3">
           <DashboardCard
+            iconName={Icon.flash}
             className="dashboardCard h-1/2"
             title="Minted Tokens"
             value="923,623,252"
@@ -59,8 +66,13 @@ function DashboardMain() {
           />
         </div>
         <div className="basis-1/3">
-          <Paper className="dashboardCard h-1/2" elevation={3}>
-            Dashboard content
+          <Paper
+            className="dashboardCard h-1/2 flex flex-col justify-center items-center"
+            elevation={3}>
+            <Typography>
+              Want to know more about Hyphaes and forestation?
+            </Typography>
+            <Button className="btn">Visit our blog here</Button>
           </Paper>
         </div>
       </div>
