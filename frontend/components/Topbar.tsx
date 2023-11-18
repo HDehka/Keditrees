@@ -1,20 +1,9 @@
 'use client'
-import {
-  AppBar,
-  Button,
-  Dialog,
-  Divider,
-  IconButton,
-  List,
-  ListItem,
-  ListItemText,
-  Slide,
-  Toolbar,
-  Typography,
-} from '@mui/material'
+import earth from '@/app/assets/login-earth.png'
+import { Button, Dialog, Slide } from '@mui/material'
 import Image from 'next/image'
 import { Fragment, forwardRef, useState } from 'react'
-import Logo from '@/app/assets/favicon.ico'
+import Logo from '@/app/assets/logo.png'
 import { TransitionProps } from '@mui/material/transitions'
 import LoginDialog from './LoginDialog'
 
@@ -51,7 +40,7 @@ function Topbar() {
       </div>
       <div className="basis-1/4">
         <Fragment>
-          <Button variant="outlined" onClick={handleClickOpen}>
+          <Button className="btn" variant="outlined" onClick={handleClickOpen}>
             Connect
           </Button>
           <Dialog
@@ -59,13 +48,7 @@ function Topbar() {
             open={open}
             onClose={handleClose}
             TransitionComponent={Transition}>
-            {
-              <LoginDialog
-                open={open}
-                setOpen={setOpen}
-                handleClose={handleClose}
-              />
-            }
+            <LoginDialog handleClose={handleClose} />
           </Dialog>
         </Fragment>
       </div>
