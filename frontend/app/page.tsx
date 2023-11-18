@@ -10,8 +10,8 @@ import ProcessesAccordion from '@/components/ProcessesAccordion'
 
 export default function Home() {
   return (
-    <main className="flex flex-col min-h-screen p-5 justify-between items-center">
-      <div id="intro" className="z-10 max-w-5xl w-full">
+    <main className="flex flex-col min-h-screen justify-between items-center">
+      <div id="intro" className="z-10 max-w-5xl">
         <div className="text-7xl text-white p-5">
           Let’s initiate a good cause
         </div>
@@ -32,7 +32,7 @@ export default function Home() {
           src={community}
         />
       </div>
-      <div id="why us" className="section-5">
+      <div id="why us" className="max-w-7xl">
         <div className="">
           <div className="text-white text-5xl p-5">Why ForstTech?</div>
         </div>
@@ -42,7 +42,7 @@ export default function Home() {
           simply planting trees.
         </div>
       </div>
-      <div id="advantage cards" className="w-full flex flex-row">
+      <div id="advantage cards" className="max-w-7xl flex flex-row">
         <div className="basis-1/3">
           <AdvantageCard
             iconName={AdvantageCardIcon.cloud}
@@ -66,7 +66,7 @@ export default function Home() {
           />
         </div>
       </div>
-      <div id="our impact" className="flex flex-row m-5">
+      <div id="our impact" className="flex flex-row my-5 w-full">
         <Image width={2000} height={2000} alt="Earth" src={earth} />
         <div className="m-10">
           <div className="label">
@@ -82,7 +82,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div id="fact cards" className="w-full flex flex-row">
+      <div id="fact cards" className="max-w-7xl flex flex-row">
         <div className="basis-1/4">
           <FactCard iconName={FactCardIcon.trees} num="7,300" text="Trees" />
         </div>
@@ -104,7 +104,7 @@ export default function Home() {
           />
         </div>
       </div>
-      <div id="processes" className="w-full">
+      <div id="processes" className="max-w-7xl">
         <div className="content-3">
           <div className="label">
             <div className="text-5xl text-white my-10">Our processes</div>
@@ -116,10 +116,10 @@ export default function Home() {
         </div>
         <ProcessesAccordion />
       </div>
-      <div id="contact us" className="w-max">
+      <div id="contact us" className="max-w-3xl m-8 p-20">
         <div className="overlap-group">
-          <p className="p">To stay connected with us</p>
-          <p className="text-wrapper-3">
+          <p className="text-white text-5xl">To stay connected with us</p>
+          <p className="text-white text-xl">
             Enter your email and always receive updates from our project!
           </p>
           <div className="overlap-2">
