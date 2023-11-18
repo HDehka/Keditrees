@@ -10,3 +10,6 @@
 [submodule "dao/lib/openzeppelin-contracts"]
 	path = dao/lib/openzeppelin-contracts
 	url = https://github.com/OpenZeppelin/openzeppelin-contracts
+[submodule "dao/lib/chainlink"]
+	path = dao/lib/chainlink
+	url = https://github.com/smartcontractkit/chainlink
