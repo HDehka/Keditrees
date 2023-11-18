@@ -1,10 +1,11 @@
+import Logo from '@/app/assets/logo.png'
 import earth from '@/app/assets/login-earth.png'
 import chains, { initialChain } from '@/constants/chain'
 import CloseIcon from '@mui/icons-material/Close'
 import { Button, IconButton, TextField } from '@mui/material'
 import { Web3AuthModalPack } from '@safe-global/auth-kit'
 import { CHAIN_NAMESPACES, WALLET_ADAPTERS } from '@web3auth/base'
-import { Web3AuthOptions } from '@web3auth/modal'
+import { Web3AuthOptions, Web3Auth } from '@web3auth/modal'
 import { OpenloginAdapter } from '@web3auth/openlogin-adapter'
 import { ethers } from 'ethers'
 import Image from 'next/image'
@@ -70,17 +71,20 @@ function LoginDialog({ handleClose }: { handleClose: () => void }) {
       const options: Web3AuthOptions = {
         clientId:
           process.env.REACT_APP_WEB3AUTH_CLIENT_ID ||
-          'https://dashboard.web3auth.io/',
+          'BJmQ1AD-phWfQMMUSxzohRau55w8U2nlc5iEm9_C8eIogqCztnUQpl3w8YRsPdvzikKlQQiIob4rtnDhFDAlsXQ',
         web3AuthNetwork: 'testnet',
         chainConfig: {
           chainNamespace: CHAIN_NAMESPACES.EIP155,
           chainId: chain.id,
           rpcTarget: chain.rpcUrl,
         },
-        // uiConfig: {
-        //   theme: undefined,
-        //   loginMethodsOrder: ['google', 'facebook'],
-        // },
+        uiConfig: {
+          appName: 'KediTrees',
+          theme: 'dark',
+          loginMethodsOrder: ['google', 'facebook'],
+          appLogo:
+            'https://drive.google.com/file/d/1Sv8SxV6P8zUzuSGEO1QEqjO3WZvL3hxi/view?usp=sharing',
+        },
       }
 
       const modalConfig = {
@@ -140,7 +144,7 @@ function LoginDialog({ handleClose }: { handleClose: () => void }) {
   }, [chain, web3AuthModalPack])
 
   return (
-    <div className="w-max flex flex-row">
+    <div className="w-max flex flex-row bg-tertiary">
       <div className="w-1/2">
         <Image
           width={1500}
@@ -150,10 +154,10 @@ function LoginDialog({ handleClose }: { handleClose: () => void }) {
         />
       </div>
       <div className="w-1/2">
-        <div className="justify-end">
+        <div className="flex flex-col justify-center items-center">
           <IconButton
             edge="start"
-            color="inherit"
+            color="info"
             onClick={handleClose}
             aria-label="close">
             <CloseIcon />
@@ -162,10 +166,12 @@ function LoginDialog({ handleClose }: { handleClose: () => void }) {
         <div className="mx-10">
           <div className="group-3">
             <div className="group-4">
-              <div className="text-5xl my-10">Log in</div>
+              <div className="text-5xl my-10 text-white">Log in</div>
               <div className="my-10">
-                <p className="p">If you don’t have an account register</p>
-                <p className="you-can-register">
+                <p className="p text-white">
+                  If you don’t have an account register
+                </p>
+                <p className="text-white">
                   <span className="span">You can </span>
                   <span className="text-wrapper-3">Register here!</span>
                 </p>
@@ -210,13 +216,6 @@ function LoginDialog({ handleClose }: { handleClose: () => void }) {
             </div>
           </div>
           <div className="text-wrapper-4">or continue with</div>
-          {/* <div className="group-wrapper">
-          <div className="group-8">
-            <Facebook1 className="facebook" />
-            <Apple className="apple-1" />
-            <Google className="google-1" />
-          </div>
-        </div> */}
         </div>
       </div>
     </div>
