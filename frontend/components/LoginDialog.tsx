@@ -5,6 +5,8 @@ import chains, {
   goerliChain,
   initialChain,
   mainnetChain,
+  mumbaiChain,
+  polygonChain,
 } from '@/constants/chain'
 import CloseIcon from '@mui/icons-material/Close'
 import {
@@ -28,9 +30,12 @@ import {
   Dispatch,
   SetStateAction,
   useCallback,
+  useContext,
   useEffect,
   useState,
 } from 'react'
+import { UserContext } from '@/contexts/UserContext'
+import { useRouter } from 'next/navigation'
 
 const getChain = (chainId?: string) => {
   const chain = chains.find((chain) => chain.id === chainId)
@@ -56,6 +61,8 @@ const initialState = {
 }
 
 function LoginDialog({ handleClose }: { handleClose: () => void }) {
+  const userContext = useContext(UserContext)
+  const router = useRouter()
   const [ownerAddress, setOwnerAddress] = useState<string>('')
   const [safes, setSafes] = useState<string[]>([])
   const [chainId, setChainId] = useState<string>(() => {
@@ -72,6 +79,14 @@ function LoginDialog({ handleClose }: { handleClose: () => void }) {
     useState<Web3AuthModalPack>()
 
   const chain = getChain(chainId) || initialChain
+
+  useEffect(() => {
+    userContext.setUser(ownerAddress)
+    if (ownerAddress && ownerAddress !== '') {
+      handleClose()
+      router.push('/dashboard')
+    }
+  }, [ownerAddress])
 
   useEffect(() => {
     setOwnerAddress('')
@@ -159,7 +174,6 @@ function LoginDialog({ handleClose }: { handleClose: () => void }) {
   }, [chain, web3AuthModalPack])
 
   const handleChainChange = (e: SelectChangeEvent) => {
-    console.log('CHAIN', chain)
     const newChain = chains.find((chain) => chain.label == e.target.value)
 
     if (newChain) {
@@ -232,6 +246,12 @@ function LoginDialog({ handleClose }: { handleClose: () => void }) {
                     </MenuItem>
                     <MenuItem value={mainnetChain.label}>
                       {mainnetChain.label}
+                    </MenuItem>
+                    <MenuItem value={polygonChain.label}>
+                      {polygonChain.label}
+                    </MenuItem>
+                    <MenuItem value={mumbaiChain.label}>
+                      {mumbaiChain.label}
                     </MenuItem>
                   </Select>
                 </FormControl>

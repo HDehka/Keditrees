@@ -2,11 +2,13 @@
 import earth from '@/app/assets/login-earth.png'
 import { Button, Dialog, Slide } from '@mui/material'
 import Image from 'next/image'
-import { Fragment, forwardRef, useState } from 'react'
+import { Fragment, forwardRef, useContext, useEffect, useState } from 'react'
 import Logo from '@/app/assets/logo.png'
 import { TransitionProps } from '@mui/material/transitions'
 import LoginDialog from './LoginDialog'
 import Link from 'next/link'
+import { UserContext } from '@/contexts/UserContext'
+import { useRouter } from 'next/navigation'
 
 const Transition = forwardRef(function Transition(
   props: TransitionProps & {
@@ -18,6 +20,8 @@ const Transition = forwardRef(function Transition(
 })
 
 function Topbar() {
+  const router = useRouter()
+  const userContext = useContext(UserContext)
   const [open, setOpen] = useState(false)
 
   const handleClickOpen = () => {
@@ -49,8 +53,18 @@ function Topbar() {
             <Button
               className="btn"
               variant="outlined"
-              onClick={handleClickOpen}>
-              Connect
+              onClick={
+                userContext.user && userContext.user !== ''
+                  ? () => {
+                      router.push('/')
+                      userContext.setUser('')
+                      handleClose
+                    }
+                  : handleClickOpen
+              }>
+              {userContext.user && userContext.user !== ''
+                ? 'Disconnect'
+                : 'Connect'}
             </Button>
           </div>
           <Dialog
