@@ -34,12 +34,14 @@ The investors can trade their tokens on all DEXs and benefit the market dynamics
 
 ## Technologies
 
+- [**API3**](https://market.api3.org/dapis): API3 delivers a suite of products to developers building next-generation applications that have been designed to be simple to use. API3 is used to setup an airnode.
 - [**Chainlink**](https://chain.link/): Chainlink connects the world to blockchains—enabling developers, startups, and enterprises to build tangible use cases that unlock real value in Web3. Chainlink oracles are used to transfer the real-world data realted to tree planting to our DAO.
 - [**Ethereum Attestation Service (EAS)**](https://attest.sh/): EAS is an open-source public good for making attestations onchain or offchain about anything. The EAS is used to attest each carbon credit issued by the relevant authority.
 - [**Foundry**](https://foundry.sh/): A tool for building and managing smart contracts.
 - [**Linea**](https://docs.linea.build/): A JavaScript library for building user interfaces. Linea is used to deploy our smart contracts.
 - [**Material-UI**](https://material-ui.com/): A popular React UI framework implementing Google's Material Design.
 - [**Solidity**](https://docs.soliditylang.org/en/v0.8.23/): Solidity is an object-oriented, high-level language for implementing smart contracts.
+- [**Scroll**](https://docs.scroll.io/en/home/): Scroll is a zero-knowledge rollup built to scale Ethereum. Our smart contracts are deployed on Scroll.
 - [**Typescript**](https://www.typescriptlang.org/): TypeScript extends JavaScript by adding types to the language.
 - [**React**](https://reactjs.org/): A JavaScript library for building user interfaces.
 - [**Safe**](https://safe.global/): Safe brings digital ownership of accounts to everyone by building universal and open contract standards for the custody of digital assets, data, and identity. Safe is used to create a user-friendly wallet using social recovery. 
