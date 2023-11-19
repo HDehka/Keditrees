@@ -1,8 +1,23 @@
 import Logo from '@/app/assets/logo.png'
 import earth from '@/app/assets/login-earth.png'
-import chains, { initialChain } from '@/constants/chain'
+import chains, {
+  gnosisChain,
+  goerliChain,
+  initialChain,
+  mainnetChain,
+} from '@/constants/chain'
 import CloseIcon from '@mui/icons-material/Close'
-import { Button, IconButton, TextField } from '@mui/material'
+import {
+  Button,
+  FormControl,
+  IconButton,
+  InputLabel,
+  MenuItem,
+  Select,
+  SelectChangeEvent,
+  TextField,
+  makeStyles,
+} from '@mui/material'
 import { Web3AuthModalPack } from '@safe-global/auth-kit'
 import { CHAIN_NAMESPACES, WALLET_ADAPTERS } from '@web3auth/base'
 import { Web3AuthOptions } from '@web3auth/modal'
@@ -42,10 +57,6 @@ const initialState = {
 
 function LoginDialog({ handleClose }: { handleClose: () => void }) {
   const [ownerAddress, setOwnerAddress] = useState<string>('')
-  console.log(
-    '🚀 ~ file: LoginDialog.tsx:45 ~ LoginDialog ~ ownerAddress:',
-    ownerAddress
-  )
   const [safes, setSafes] = useState<string[]>([])
   const [chainId, setChainId] = useState<string>(() => {
     // if (isMoneriumRedirect()) {
@@ -147,6 +158,15 @@ function LoginDialog({ handleClose }: { handleClose: () => void }) {
     }
   }, [chain, web3AuthModalPack])
 
+  const handleChainChange = (e: SelectChangeEvent) => {
+    console.log('CHAIN', chain)
+    const newChain = chains.find((chain) => chain.label == e.target.value)
+
+    if (newChain) {
+      setChainId(newChain.id)
+    }
+  }
+
   return (
     <div className="w-max flex flex-row bg-tertiary">
       <div className="w-1/2">
@@ -182,44 +202,50 @@ function LoginDialog({ handleClose }: { handleClose: () => void }) {
               </div>
             </div>
             <div className="w-auto mr-3">
-              <div>
-                <TextField
-                  className="w-1/2 my-2"
-                  label="E-mail"
-                  InputProps={{
-                    readOnly: true,
-                  }}
-                />
-              </div>
-              <div>
-                <TextField
-                  className="w-1/2 my-2"
-                  label="Password"
-                  type="password"
-                  InputProps={{
-                    readOnly: true,
-                  }}
-                />
+              <div className="w-1/2">
+                <FormControl fullWidth>
+                  <InputLabel className="text-white">Chain</InputLabel>
+                  <Select
+                    sx={{
+                      color: 'white',
+                      '.MuiOutlinedInput-notchedOutline': {
+                        borderColor: 'rgba(228, 219, 233, 0.25)',
+                      },
+                      '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                        borderColor: 'rgba(228, 219, 233, 0.25)',
+                      },
+                      '&:hover .MuiOutlinedInput-notchedOutline': {
+                        borderColor: 'rgba(228, 219, 233, 0.25)',
+                      },
+                      '.MuiSvgIcon-root ': {
+                        fill: 'white !important',
+                      },
+                    }}
+                    value={chain.label}
+                    label="Chain"
+                    onChange={handleChainChange}>
+                    <MenuItem value={gnosisChain.label}>
+                      {gnosisChain.label}
+                    </MenuItem>
+                    <MenuItem value={goerliChain.label}>
+                      {goerliChain.label}
+                    </MenuItem>
+                    <MenuItem value={mainnetChain.label}>
+                      {mainnetChain.label}
+                    </MenuItem>
+                  </Select>
+                </FormControl>
               </div>
               <div className="w-auto my-3">
                 <Button
-                  className="btn w-1/2"
+                  className="bg-secondary w-1/2 border-2 border-black"
                   variant="contained"
                   onClick={loginWeb3Auth}>
                   Sign In
                 </Button>
               </div>
-              <div className="w-auto my-3">
-                <Button
-                  className="btn w-1/2"
-                  variant="contained"
-                  onClick={loginWeb3Auth}>
-                  Sign Up
-                </Button>
-              </div>
             </div>
           </div>
-          <div className="text-wrapper-4">or continue with</div>
         </div>
       </div>
     </div>
