@@ -18,7 +18,7 @@ The investors can trade their tokens on all DEXs and benefit the market dynamics
 
 ## Installation
 
-1. Clone the repository: `git clone https://github.com/yourusername/yourproject.git`
+1. Clone the repository: `git clone git@github.com:HDehka/Keditrees.git`
 2. Navigate to the project directory: `cd yourproject`
 3. Install dependencies: `npm install`
 
@@ -26,7 +26,10 @@ The investors can trade their tokens on all DEXs and benefit the market dynamics
 
 - [React](https://reactjs.org/): A JavaScript library for building user interfaces.
 - [Foundry](https://foundry.sh/): A tool for building and managing smart contracts.
+- [Solidity](https://docs.soliditylang.org/en/v0.8.23/): Solidity is an object-oriented, high-level language for implementing smart contracts.
+- [Typescript](https://www.typescriptlang.org/): TypeScript extends JavaScript by adding types to the language.
 - [Material-UI](https://material-ui.com/): A popular React UI framework implementing Google's Material Design.
+- 
 
 ## Usage
 
