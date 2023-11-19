@@ -3,7 +3,7 @@
 
 <h1 align="center">
   <br>
-  <img src="https://raw.githubusercontent.com/amitmerchant1990/electron-markdownify/master/app/img/markdownify.png" alt="Kedi Trees" width="200"></a>
+  <img src="frontend/app/assets/logo.png" alt="Kedi Trees" width="200"></a>
   <br>
   Kedi Trees
   <br>
@@ -54,8 +54,6 @@ npm start
 ```
 
 ## Features
-
-TODO: Airbus API for satellite images
 
 Mock API for tree count analysis: https://api.jsonbin.io/v3/b/65587a6c54105e766fd1ba33
 
