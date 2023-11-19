@@ -40,11 +40,11 @@ The investors can trade their tokens on all DEXs and benefit the market dynamics
 - [**Foundry**](https://foundry.sh/): A tool for building and managing smart contracts.
 - [**Linea**](https://docs.linea.build/): A JavaScript library for building user interfaces. Linea is used to deploy our smart contracts.
 - [**Material-UI**](https://material-ui.com/): A popular React UI framework implementing Google's Material Design.
+- [**React**](https://reactjs.org/): A JavaScript library for building user interfaces.
+- [**Safe**](https://safe.global/): Safe brings digital ownership of accounts to everyone by building universal and open contract standards for the custody of digital assets, data, and identity. Safe is used to create a user-friendly wallet using social recovery. 
 - [**Solidity**](https://docs.soliditylang.org/en/v0.8.23/): Solidity is an object-oriented, high-level language for implementing smart contracts.
 - [**Scroll**](https://docs.scroll.io/en/home/): Scroll is a zero-knowledge rollup built to scale Ethereum. Our smart contracts are deployed on Scroll.
 - [**Typescript**](https://www.typescriptlang.org/): TypeScript extends JavaScript by adding types to the language.
-- [**React**](https://reactjs.org/): A JavaScript library for building user interfaces.
-- [**Safe**](https://safe.global/): Safe brings digital ownership of accounts to everyone by building universal and open contract standards for the custody of digital assets, data, and identity. Safe is used to create a user-friendly wallet using social recovery. 
 - [**UNICEF**](https://www.unicef.org/turkiye/en/conditional-cash-transfer-education-ccte-programme): UNICEF works in more than 190 countries and territories to reach the most disadvantaged children and adolescents. Our project responds to the use-case requirement of UNICEF which is to leverage Web3 technology creatively to address climate change, with a focus on practical solutions that combine Web3 modules with proven Web2 fundamentals.
 
 ## Usage
