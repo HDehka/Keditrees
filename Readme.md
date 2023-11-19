@@ -86,10 +86,3 @@ This project is licensed under the [MIT License](LICENSE).
 
 ## Documentation
 
-- [API Documentation](docs/api.md)
-- [User Manual](docs/user-manual.md)
-
-## Acknowledgments
-
-- Thanks to [Name] for their awesome library
-- ...
