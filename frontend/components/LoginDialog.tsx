@@ -5,7 +5,7 @@ import CloseIcon from '@mui/icons-material/Close'
 import { Button, IconButton, TextField } from '@mui/material'
 import { Web3AuthModalPack } from '@safe-global/auth-kit'
 import { CHAIN_NAMESPACES, WALLET_ADAPTERS } from '@web3auth/base'
-import { Web3AuthOptions, Web3Auth } from '@web3auth/modal'
+import { Web3AuthOptions } from '@web3auth/modal'
 import { OpenloginAdapter } from '@web3auth/openlogin-adapter'
 import { ethers } from 'ethers'
 import Image from 'next/image'
@@ -42,6 +42,10 @@ const initialState = {
 
 function LoginDialog({ handleClose }: { handleClose: () => void }) {
   const [ownerAddress, setOwnerAddress] = useState<string>('')
+  console.log(
+    '🚀 ~ file: LoginDialog.tsx:45 ~ LoginDialog ~ ownerAddress:',
+    ownerAddress
+  )
   const [safes, setSafes] = useState<string[]>([])
   const [chainId, setChainId] = useState<string>(() => {
     // if (isMoneriumRedirect()) {
@@ -106,7 +110,7 @@ function LoginDialog({ handleClose }: { handleClose: () => void }) {
         adapterSettings: {
           uxMode: 'popup',
           whiteLabel: {
-            // name: 'Safe',
+            name: 'Safe',
           },
         },
       })
@@ -117,7 +121,7 @@ function LoginDialog({ handleClose }: { handleClose: () => void }) {
 
       await web3AuthModalPack.init({
         options,
-        // adapters: [openloginAdapter],
+        adapters: [openloginAdapter],
         modalConfig,
       })
 
