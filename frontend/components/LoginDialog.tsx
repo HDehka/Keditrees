@@ -133,7 +133,7 @@ function LoginDialog({ handleClose }: { handleClose: () => void }) {
 
       const openloginAdapter = new OpenloginAdapter({
         loginSettings: {
-          mfaLevel: 'mandatory',
+          mfaLevel: 'optional',
         },
         adapterSettings: {
           uxMode: 'popup',
