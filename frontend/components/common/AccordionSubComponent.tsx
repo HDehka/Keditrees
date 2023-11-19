@@ -18,13 +18,13 @@ function AccordionSubComponent({ title, details }: AccordionSubComponentType) {
     <div>
       <Accordion className="bg-tertiary">
         <AccordionSummary
-          className="bg-tertiary p-10 rounded-3xl"
+          className="bg-tertiary p-8 rounded-3xl"
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1a-content"
           id="panel1a-header">
-          <Typography className="text-white text-5xl">{title}</Typography>
+          <Typography className="text-white text-3xl">{title}</Typography>
         </AccordionSummary>
-        <Divider />
+        <Divider className="text-white" />
         <AccordionDetails className="bg-secondary rounded-3xl">
           <Typography className="text-white">{details}</Typography>
         </AccordionDetails>
