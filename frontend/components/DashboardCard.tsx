@@ -57,7 +57,7 @@ function DashboardCard({
       {iconName ? icon(iconName) : null}
       <Typography className="text-sm">{title}</Typography>
       <Typography className="text-2xl mt-2">{value}</Typography>
-      <Typography className="text-xs mt-2">{change}</Typography>
+      <Typography className="text-xs mt-20">{change}</Typography>
     </Paper>
   )
 }

@@ -42,6 +42,8 @@ function DashboardMain() {
           <DashboardCard
             className="dashboardCard h-full"
             title="Locations"
+            value="25 Projects, 424,932 Trees"
+            change="1.78% increase from last month"
             iconName={Icon.world}
           />
         </div>
