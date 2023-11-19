@@ -4,9 +4,11 @@ import chains, {
   gnosisChain,
   goerliChain,
   initialChain,
+  lineaChain,
   mainnetChain,
   mumbaiChain,
   polygonChain,
+  scrollChain,
 } from '@/constants/chain'
 import CloseIcon from '@mui/icons-material/Close'
 import {
@@ -252,6 +254,12 @@ function LoginDialog({ handleClose }: { handleClose: () => void }) {
                     </MenuItem>
                     <MenuItem value={mumbaiChain.label}>
                       {mumbaiChain.label}
+                    </MenuItem>
+                    <MenuItem value={lineaChain.label}>
+                      {lineaChain.label}
+                    </MenuItem>
+                    <MenuItem value={scrollChain.label}>
+                      {scrollChain.label}
                     </MenuItem>
                   </Select>
                 </FormControl>

@@ -1,9 +1,13 @@
+'use client'
 import Logo from '@/app/assets/logo.png'
+import { UserContext } from '@/contexts/UserContext'
 import { Avatar, Button, Paper, Typography } from '@mui/material'
 import Image from 'next/image'
-import React from 'react'
+import React, { useContext } from 'react'
 
 function DashboardProfile() {
+  const userContext = useContext(UserContext)
+
   return (
     <div id="profile" className="basis-1/4">
       <Paper
@@ -23,7 +27,11 @@ function DashboardProfile() {
           <div className="text-2xl">100</div>
           <div className="text-xs">EXCHANGE RATE</div>
         </div>
-        <div>PUBLIC ADDRESS</div>
+        <div className="text-xs">
+          {userContext.user ?? userContext.user !== ''
+            ? userContext.user
+            : 'Something went wrong..'}
+        </div>
       </Paper>
       <div className="flex flex-col justify-center items-center">
         <Button className="btn">Need help? Contact us</Button>

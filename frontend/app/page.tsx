@@ -17,7 +17,7 @@ export default function Home() {
         </div>
         <div className="flex flex-col justify-center items-center my-5">
           <div className="text-xl text-white">
-            With ForstTech, earn crypto tokens while saving the planet.
+            With KediTrees, earn crypto tokens while saving the planet.
           </div>
           <div className="text-xl text-white">
             Plant trees and and earn today!
@@ -37,10 +37,10 @@ export default function Home() {
       </div>
       <div id="why us" className="max-w-7xl my-10">
         <div className="">
-          <div className="text-white text-5xl p-5">Why ForstTech?</div>
+          <div className="text-white text-5xl p-5">Why KediTrees?</div>
         </div>
         <div className="text-white text-3xl p-5">
-          ForstTech provides tokens to fund reforestation projects worldwide,
+          KediTrees provides tokens to fund reforestation projects worldwide,
           providing investors with an opportunity to support environment by
           simply planting trees.
         </div>
@@ -121,27 +121,7 @@ export default function Home() {
       </div>
       <div id="contact us" className="max-w-3xl m-8 p-20">
         <div className="overlap-group">
-          <p className="text-white text-5xl">To stay connected with us</p>
-          <p className="text-white text-xl">
-            Enter your email and always receive updates from our project!
-          </p>
-          <div className="overlap-2">
-            {/* <Button
-              buttonCoreSizeIconInfrontClassName="button-4"
-              buttonCoreText="Send"
-              buttonCoreTextClassName="design-component-instance-node"
-              className="button-instance"
-              hierarchy="primary-solid"
-              icon="no"
-              size="forty-eight"
-              state="rest"
-            /> */}
-            <button className="button-core-wrapper">
-              <div className="button-core-2">
-                <div className="text-3">Your email address</div>
-              </div>
-            </button>
-          </div>
+          <p className="text-white text-5xl">Stay connected with us!</p>
         </div>
       </div>
     </main>
