@@ -65,6 +65,32 @@ export const mumbaiChain: Chain = {
   faucetUrl: 'https://mumbaifaucet.com/',
 }
 
+export const lineaChain: Chain = {
+  id: '0xe708',
+  token: 'ETH',
+  shortName: 'eth',
+  label: 'Linea',
+  rpcUrl: 'https://linea.blockpi.network/v1/rpc/public',
+  blockExplorerUrl: 'https://lineascan.build',
+  color: '#0xe708',
+  isStripePaymentsEnabled: true,
+  isMoneriumPaymentsEnabled: false,
+  faucetUrl: 'https://mumbaifaucet.com/',
+}
+
+export const scrollChain: Chain = {
+  id: '0x826b0',
+  token: 'ETH',
+  shortName: 'eth',
+  label: 'Scroll',
+  rpcUrl: 'https://rpc.scroll.io',
+  blockExplorerUrl: 'https://scrollscan.com',
+  color: '#0xe708',
+  isStripePaymentsEnabled: true,
+  isMoneriumPaymentsEnabled: false,
+  faucetUrl: 'https://mumbaifaucet.com/',
+}
+
 const chains: Chain[] = [
   gnosisChain,
   goerliChain,
