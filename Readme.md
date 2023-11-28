@@ -1,4 +1,4 @@
-# [Kedi Trees](https://keditrees.vercel.app/)
+# [Kedi Trees](https://keditrees.vercel.app/) https://keditrees.vercel.app/
 
 <h1 align="center">
   <br>
