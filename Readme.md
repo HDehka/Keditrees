@@ -1,5 +1,4 @@
-# Kedi Trees
-
+# [Kedi Trees](https://keditrees.vercel.app/)
 
 <h1 align="center">
   <br>
@@ -8,7 +7,6 @@
   Kedi Trees
   <br>
 </h1>
-
 
 Keditree is a platform that enables business entities as well as individuals to invest in tree plantations and benefit carbon credits beside the monetary incentive. Carbon credits issued based on the amount of trees(existence) and the carbon sequestration capacity(effectiveness) are input to keditree DAO that mints tokens. DAO sets a fee in order to ensure there are tokens to be burnt in case of loss in value, ex: wildfire or etc.
 Business entities and individuals can obtain a green pass to place their bids. The profile eases any audit requests for businesses in case they are interested in ESG scores.
@@ -41,7 +39,7 @@ The investors can trade their tokens on all DEXs and benefit the market dynamics
 - [**Linea**](https://docs.linea.build/): A JavaScript library for building user interfaces. Linea is used to deploy our smart contracts.
 - [**Material-UI**](https://material-ui.com/): A popular React UI framework implementing Google's Material Design.
 - [**React**](https://reactjs.org/): A JavaScript library for building user interfaces.
-- [**Safe**](https://safe.global/): Safe brings digital ownership of accounts to everyone by building universal and open contract standards for the custody of digital assets, data, and identity. Safe is used to create a user-friendly wallet using social recovery. 
+- [**Safe**](https://safe.global/): Safe brings digital ownership of accounts to everyone by building universal and open contract standards for the custody of digital assets, data, and identity. Safe is used to create a user-friendly wallet using social recovery.
 - [**Solidity**](https://docs.soliditylang.org/en/v0.8.23/): Solidity is an object-oriented, high-level language for implementing smart contracts.
 - [**Scroll**](https://docs.scroll.io/en/home/): Scroll is a zero-knowledge rollup built to scale Ethereum. Our smart contracts are deployed on Scroll.
 - [**Typescript**](https://www.typescriptlang.org/): TypeScript extends JavaScript by adding types to the language.
@@ -62,7 +60,8 @@ Mock API for tree count analysis: https://api.jsonbin.io/v3/b/65587a6c54105e766f
 Chainlink Function Subscription Id: 1689 (Sepolia)
 
 Deployed contracts:
-- L1: https://sepolia.etherscan.io/address/0xaf88889772320d81f272a9d1e1af0552ed588636 
+
+- L1: https://sepolia.etherscan.io/address/0xaf88889772320d81f272a9d1e1af0552ed588636
 - Scroll: https://sepolia.scrollscan.com/address/0x994C3aCa08860d8B1a50A8076545eAA3fdfdEB0e
 - Linea: https://goerli.lineascan.build/address/0x67873f3694Af60097980f920c62f39EeB5E05dD8
 
@@ -87,4 +86,3 @@ This project is licensed under the [MIT License](LICENSE).
 ![Screenshot 1](screenshots/screenshot1.png)
 
 ## Documentation
-
